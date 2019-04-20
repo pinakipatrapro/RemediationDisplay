@@ -1,9 +1,9 @@
 /*!
- * Copyright EY GDS
- * Author Pinaki Patra  2019
+ * ${copyright}
  */
- 
+
 sap.ui.define([],
+
 	function () {
 		"use strict";
 		var RemediationDisplayRenderer = {};
@@ -45,6 +45,9 @@ sap.ui.define([],
 			}
 
 			oRm.write("</div>");
+
 		};
+
 		return RemediationDisplayRenderer;
-	},  true);
+
+	}, true);

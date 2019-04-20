@@ -16,17 +16,39 @@
       <!-- ********************************************************************** -->
       <script id="sap-ui-bootstrap" 
          type="text/javascript"
-         data-sap-ui-libs="ey.dqml.remediationdisplay"
+         data-sap-ui-libs="ey.dqml.remediationdisplay,sap.ui.layout"
          src="resources/sap-ui-core.js"
          data-sap-ui-theme="sap_belize">
       </script>
       
       <script type="text/javascript"> 
-      
-         var oExample = new ey.dqml.remediationdisplay.controls.RemediationDisplay({
-                         text: "Example"
-         });
-         oExample.placeAt("content");
+    	var grid = new sap.ui.layout.Grid({
+    		content : [
+    			new ey.dqml.remediationdisplay.controls.RemediationDisplay({
+                    text: "Example1",
+                    tooltipText : "This is my tooltip for my control",
+                    bgColor:'linear-gradient(to top left,#76daff 10%,white)'
+        		}),
+        		 new ey.dqml.remediationdisplay.controls.RemediationDisplay({
+                    showDetection: false,
+                    bgColor : "#b985ff",
+                    press : function(oEvent){
+                     	console.log(oEvent);
+                    }
+    			}),
+    			new ey.dqml.remediationdisplay.controls.RemediationDisplay({
+                    showRemediation: false,
+					selectionEnabled : false,
+					bgColor : "teal",
+					tooltipText : "This is my tooltip for my control"
+    			}),
+    			new ey.dqml.remediationdisplay.controls.RemediationDisplay({
+					selectionEnabled : true,
+					tooltipText : "This is my tooltip for my control"
+    			})
+			]
+    	})
+        grid.placeAt("content");
          
       </script>
    </head>

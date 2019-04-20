@@ -13,13 +13,55 @@ sap.ui.define([
 				text: {
 					type: "string",
 					defaultValue: null
+				},
+				bgColor: {
+					type: "string",
+					defaultValue: null
+				},
+				selected: {
+					type: "boolean",
+					defaultValue: false
+				},
+				showDetection: {
+					type: "boolean",
+					defaultValue: true
+				},
+				selectionEnabled: {
+					type: "boolean",
+					defaultValue: true
+				},
+				showRemediation: {
+					type: "boolean",
+					defaultValue: true
+				},
+				tooltipText : {
+					type: "string",
+					defaultValue: null
 				}
 			},
 			events: {
-				press: {}
+				press: {
+					parameters: {
+						isSelected: {
+							type: "boolean"
+						}
+					}
+				}
 			}
 		},
-		renderer: RemediationDisplayRenderer
+		init: function () {
+			Control.prototype.init.call(this);
+		},
+		renderer: RemediationDisplayRenderer,
+		onclick: function (oEvent) {
+			if (!this.getSelectionEnabled()) {
+				return;
+			}
+			this.setProperty('selected', !this.getProperty('selected'));
+			this.fireEvent('press', {
+				isSelected: this.getSelected()
+			});
+		}
 	});
 	return RemediationDisplay;
 },   true);
