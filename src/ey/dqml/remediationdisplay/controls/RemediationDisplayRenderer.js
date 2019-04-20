@@ -2,7 +2,6 @@
  * Copyright EY GDS
  * Author Pinaki Patra  2019
  */
-
 sap.ui.define([],
 	function () {
 		"use strict";
